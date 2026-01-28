@@ -1,0 +1,14 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int[] copyAndReverse(int[] arr, int n) {
+        // Write your code here.
+        int[] COPY_ARR = new int[n];
+        int k = 0;
+        for(int i=n-1; i>-1; i--){
+            COPY_ARR[i] = arr[k];
+            k++;
+        }
+        return COPY_ARR;
+    }
+}
