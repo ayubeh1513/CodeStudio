@@ -1,0 +1,21 @@
+import java.util.*;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int e = 0;
+		int o = 0;
+		while(n>0){
+			int i = n%10;
+			if(i%2==0){
+				e+=i;
+			} else {
+				o+=i;
+			}
+			n=n/10;
+		}
+		System.out.println(e+" "+o);
+	}
+}
