@@ -1,0 +1,20 @@
+public class Solution {
+	public static String reverseWordWise(String input) {
+		// Write your code here
+		input.trim();
+		String[] a = input.split(" ");
+		int s = 0;
+		int e = a.length - 1;
+
+		while(s<e){
+			String t = a[s];
+			a[s] = a[e];
+			a[e] = t;
+			s++;
+			e--;
+		}
+
+		String o = String.join(" ",a);
+		return o.trim();
+	}
+}
