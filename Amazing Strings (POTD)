@@ -1,0 +1,32 @@
+public class Solution {
+	public static String amazingStrings(String first, String second,String third) {
+		// Write your code here.
+		int t = third.length();
+		int f = first.length();
+		int s = second.length();
+
+		if((f+s) != t){
+			return "NO";
+		}
+
+		int[] freq = new int[26];
+
+		for(int i=0; i<f; i++){
+			freq[first.charAt(i) - 'A']++; 
+		}
+
+		for(int i=0; i<s; i++){
+			freq[second.charAt(i) - 'A']++; 
+		}
+
+		for(int i=0; i<t; i++){
+			if(freq[third.charAt(i) - 'A'] == 0){
+				return "NO";
+			}
+			
+			freq[third.charAt(i) - 'A']--; 
+		}
+
+		return "YES";
+	}
+}
