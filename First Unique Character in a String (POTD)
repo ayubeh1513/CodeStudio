@@ -1,0 +1,26 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static char firstNonRepeating(String str) {
+		// Write your code here
+        int n = str.length();
+        Map<Integer, Integer> m = new HashMap<>();
+        for(char i : str.toCharArray()){
+            int idx = i-'a';
+            if(m.containsKey(idx)){
+                m.put(idx, m.get(idx) + 1);
+            } else {
+                m.put(idx, 1);
+            }
+        }
+
+        for(char i : str.toCharArray()){
+            int idx = i-'a';
+            if(m.get(idx)==1){
+                return i;
+            }
+        }
+
+        return '#';
+	}
+}
