@@ -1,0 +1,20 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int findAngle(int hour, int minute) {
+        //Write your code here
+        hour = hour%12;
+        double k = (30*hour) - (5.5*minute);
+
+        if(k<0){
+            k*=-1;
+        }
+
+        if(k>180){
+            double a = 360-k;
+            return (int) a;
+        } 
+        
+        return (int) k;
+    }
+}
