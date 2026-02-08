@@ -1,0 +1,22 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static String specificOrder(String x, String y) {
+        // Write your code here.
+        StringBuilder sb = new StringBuilder();
+        for(char i : y.toCharArray()){
+            for(char j : x.toCharArray()){
+                if(i==j){
+                    sb.append(i);
+                }
+            }
+        }
+        for(char j : x.toCharArray()){
+            if(y.indexOf(j) == -1){
+                sb.append(j);
+            }
+        }
+
+        return sb.toString();
+    }
+}
