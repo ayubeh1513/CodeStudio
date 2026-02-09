@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Solution{
+    public static void main(String[] args) {
+        //Write your code here. 
+        // Math.round() An internal function implemented in the Math class(no need to import as it is available as default) to round off the decimal values
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextInt();
+        char b = sc.next().charAt(0);
+
+        double HRA = 0.2*a;
+        double DA = 0.5*a;
+        double PF = 0.11*a;
+
+        double f;
+        if(b=='A'){
+            f=1700;
+        } else if (b=='B'){
+            f=1500;
+        } else {
+            f=1300;
+        }
+
+        double s = HRA + a + DA + (f-PF);
+        System.out.print(Math.round(s));
+    }
+}
