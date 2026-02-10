@@ -1,0 +1,15 @@
+public class Solution {
+
+	public static String removeConsecutiveDuplicates(String s) {
+		// Write your code here
+		StringBuilder sb = new StringBuilder();
+		char a = ' ';
+		for(char i : s.toCharArray()){
+			if(i != a){
+				a = i;
+				sb.append(i);
+			}
+		}
+		return sb.toString();
+	}
+}
