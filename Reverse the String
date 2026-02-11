@@ -1,0 +1,18 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {	
+	public static String reverseString(String str) {
+		// Write your code here.
+		char[] st = str.toCharArray();
+		int sa=0;
+		int en=st.length-1;
+		while(sa<en){
+			char i = st[sa];
+			st[sa]=st[en];
+			st[en]=i;
+			sa++;
+			en--;
+		}
+		return String.valueOf(st);
+	}
+}
