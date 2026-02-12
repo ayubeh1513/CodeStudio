@@ -1,0 +1,14 @@
+public class Solution {
+	public static String isPrime(int num) {
+		//Your code goes here
+		if(num==1) return "NO";
+		int n=0;
+		for(int i=1; i*i<=num; i++){
+			if(num%i==0){
+				n++;
+			}
+		}
+		if(n>1) return "NO";
+		return "YES";
+	}
+}
