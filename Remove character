@@ -1,0 +1,14 @@
+public class Solution {
+
+	public static String removeAllOccurrencesOfChar(String str, char ch) {
+		// Your code goes here
+		StringBuilder sb = new StringBuilder();
+		for (char i : str.toCharArray()){
+			if(i!=ch){
+				sb.append(i);
+			}
+		}
+
+		return sb.toString();
+	}
+}
