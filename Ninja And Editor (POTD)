@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static String editSentence(String str){
+        // Write your code here.
+        StringBuilder sb = new StringBuilder();
+        for(char i : str.toCharArray()){
+            if(i >= 65 && i <= 90){
+                sb.append(" ");
+                sb.append((char)(i+32));
+            }else {
+                sb.append(i);
+            }
+        }
+
+        str = sb.toString();
+        return str.trim();
+    }
+}
