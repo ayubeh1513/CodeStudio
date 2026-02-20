@@ -4,18 +4,11 @@ import java.io.*;
 public class Solution {
 	public static int findInteger(int n, int k) {
 		// Write your code here
-		ArrayList<Integer> o = new ArrayList<>();
-		ArrayList<Integer> e = new ArrayList<>();
-
-		for(int i=1; i<=n; i++){
-			if(i%2==0) e.add(i);
-			else o.add(i);
+		int o = (n+1)/2;
+		if(k<=o){
+			return 2*k-1;
+		} else {
+			return 2*(k-o);
 		}
-
-		for(int i : e){
-			o.add(i);
-		}
-
-		return o.get(k-1);
 	}
 }
