@@ -1,0 +1,12 @@
+import java.util.*;
+
+public class Solution {
+    public static long solve(int n, int[] a) {
+        // Write your code here.
+        int s = 0;
+        for(int i : a){
+            s += i;
+        }
+        return s;
+    }
+}
