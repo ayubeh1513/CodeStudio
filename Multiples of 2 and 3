@@ -1,0 +1,14 @@
+public class solution {
+
+	public static int findSum(int arr[])
+	{
+           //Write code here
+		   long s=0;
+		   for(int i : arr){
+			   if((i%2==0) || (i%3==0)){
+				   s+=i;
+			   }
+		   }
+		   return (int) s;
+	}
+}
