@@ -1,0 +1,18 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static boolean checkBits(int n) {
+        // Write your code here.
+        ArrayList<Integer> a = new ArrayList<>();
+
+        while(n>0){
+            a.add(n%2);
+            n=n/2;
+        }
+        for(int i=1; i<a.size(); i++){
+            if(a.get(i)==a.get(i-1)) return false;
+        }
+
+        return true;
+    }
+}
