@@ -1,0 +1,17 @@
+import java.util.* ;
+import java.io.*; 
+import java.math.BigInteger;
+public class Solution
+{
+    public static int boringFactorials(int n, int p)
+    {
+        // Write your code here.
+        BigInteger nb = BigInteger.valueOf(n);
+        BigInteger pb = BigInteger.valueOf(p);
+        BigInteger fb = BigInteger.ONE;
+        for(int i=1; i<=n; i++){
+            fb = fb.multiply(BigInteger.valueOf(i)).mod(pb);
+        }
+        return fb.intValue();
+    }
+}
