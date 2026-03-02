@@ -1,0 +1,32 @@
+import java.util.*;
+public class Solution {
+
+	public static boolean isPermutation(String s, String ss) {
+		//Your code goes here
+		Map<Character, Integer> m = new HashMap<>();
+		for(char i : s.toCharArray()){
+			if(m.containsKey(i)){
+				m.put(i, m.get(i) + 1);
+			} else {
+				m.put(i, 1);
+			}
+		}
+
+		for(char i : ss.toCharArray()){
+			if(m.containsKey(i)){
+				if(m.get(i)==0) return false;
+				else{
+					m.put(i, m.get(i) - 1);
+				}
+			} else {
+				return false;
+			}
+		}
+
+		for(int i : m.values()){
+			if(i!=0) return false;
+		}
+
+		return true;
+	}
+}
