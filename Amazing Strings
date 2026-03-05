@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Solution {
+	public static void answer(String s1,String s2,String s3){
+		// Write your code here
+		
+		if(s1.length() + s2.length() != s3.length()){
+			System.out.println("NO");
+			return;
+		}
+
+		Map<Character, Integer> m = new HashMap<>();
+
+		for(char i : s1.toCharArray()){
+			if(m.containsKey(i)){
+				m.put(i, m.get(i)+1);
+			} else {
+				m.put(i, 1);
+			}
+		}
+
+		for(char i : s2.toCharArray()){
+			if(m.containsKey(i)){
+				m.put(i, m.get(i)+1);
+			} else {
+				m.put(i, 1);
+			}
+		}
+
+		for(char i : s3.toCharArray()){
+			if(m.containsKey(i)){
+				if(m.get(i) == 0){
+					System.out.println("NO");
+					return;
+				}
+				m.put(i, m.get(i)-1);
+			}else{
+				System.out.println("NO");
+				return;
+			}
+		}
+
+		System.out.println("YES");
+		return;
+	}	
+}
