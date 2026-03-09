@@ -1,0 +1,16 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static long titleToNumber(String s)
+    {
+        int n = s.length();
+        int i=0;
+        long r = 0;
+        while(i<n){
+            r = (26*r)+(((int)(s.charAt(i)))-64);
+            i++;
+        }
+
+        return r;
+    }
+}
