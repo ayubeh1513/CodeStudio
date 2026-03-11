@@ -1,0 +1,19 @@
+public class Solution {
+
+	public static String replaceCharacter(String in, char c1, char c2) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+		 * Taking input and printing output is handled automatically.
+		 */
+
+		StringBuilder sb = new StringBuilder();
+		for(char i : in.toCharArray()){
+			if(i==c1) sb.append(c2);
+			else sb.append(i);
+		}
+
+		return sb.toString();
+	}
+}
