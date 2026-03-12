@@ -1,0 +1,32 @@
+import java.util.*;
+public class Solution {
+
+
+	public static void main(String[] args) {
+		
+		/* Your class should be named Solution.
+	 	* Read input as specified in the question.
+	 	* Print output as specified in the question.
+		*/
+
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+
+		if(n<3){
+			System.out.print(1);
+			return;
+		}
+
+		int a = 1;
+		int b = 1;
+
+		while(n>2){
+			int t = b;
+			b += a;
+			a = t;
+			n--;
+		}
+
+		System.out.print(b);
+	}
+}
