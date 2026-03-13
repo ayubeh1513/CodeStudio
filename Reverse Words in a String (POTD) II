@@ -1,0 +1,19 @@
+public class Solution {
+	
+	public static String reverseOrderWords(String str) {
+        // Write your code here
+        str.trim();
+        String[] st = str.split(" ");
+        int s=0;
+        int e=st.length-1;
+        while(s<=e){
+            String t = st[s];
+            st[s]=st[e];
+            st[e]=t;
+            s++;
+            e--;
+        }
+
+        return String.join(" ", st);
+    }
+}
