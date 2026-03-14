@@ -1,0 +1,15 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+	public static boolean oneSegment(String str) 
+	{
+		// Write your code here.
+		char m = ' ';
+		for(char i : str.toCharArray()){
+			if(m=='0' && i=='1') return false;
+			m = i;
+		}
+		return true;
+	}
+}
