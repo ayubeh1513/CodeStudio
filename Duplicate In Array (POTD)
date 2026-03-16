@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+
+public class Solution {
+
+	public static int findDuplicate(ArrayList<Integer> arr) {
+
+		//    Write your code here.
+		for(int i : arr){
+			int a=0;
+			for(int j : arr){
+				if(i==j) a++;
+				if(a==2) return i;
+			}
+		}
+		return -1;
+	}
+}
