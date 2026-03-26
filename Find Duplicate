@@ -1,0 +1,14 @@
+import java.util.*;
+public class Solution{  
+    
+    public static int duplicateNumber(int arr[]) {
+    	//Your code goes here
+        int m = -1;
+        Arrays.sort(arr);
+        for(int i : arr){
+            if(m==i) return i;
+            else m=i;
+        }
+        return arr.length-1;
+    }
+}
