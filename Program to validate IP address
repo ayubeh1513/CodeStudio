@@ -1,0 +1,31 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+
+	public static boolean isValidIPv4(String ipAddress) {
+		// write your code here
+		String[] s = ipAddress.split("\\.");
+		if(s.length!=4) return false;
+		for(String i : s){
+			if(i.length()==0) return false;
+			int n = 0;
+			for(char j : i.toCharArray()){
+				if(j>='0' && j<='9'){
+					n *= 10;
+					n += j-'0';
+				} else {
+					return false;
+				}
+			}
+
+			if(n<0 || n>255){
+				return false;
+			}
+
+			if(i.length()>1 && i.charAt(0)=='0') return false;
+		}
+
+		return true;
+	}
+}
