@@ -1,0 +1,29 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+
+	public static boolean checkPalindrome(String s) {
+		// WRITE YOUR CODE HERE	
+		StringBuilder sb = new StringBuilder();
+		s = s.toLowerCase();
+		for(char i : s.toCharArray()){
+			if((i>='0' && i<='9') || (i>='a' && i<='z')){
+				sb.append(i);
+			}
+		}
+
+		s=sb.toString();
+		int st=0, e=s.length()-1;
+
+		while(st<=e){
+			if(s.charAt(st)!=s.charAt(e)){
+				return false;
+			}
+
+			st++;
+			e--;
+		}
+
+		return true;
+	}
+}
