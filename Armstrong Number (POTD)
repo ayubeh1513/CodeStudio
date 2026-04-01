@@ -1,0 +1,28 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+	public static boolean isArmstrong(int num)
+	{
+	    // wrtie your code here;
+
+		int n = num;
+		int a = 0;
+		while(n>0){
+			a++;
+			n /= 10;
+		}
+
+		int b = 0;
+		int d = num;
+		while(num>0){
+			int c = num%10;
+			b += Math.pow(c,a);
+			num /= 10;
+		}
+
+		if(b==d) return true;
+		return false;
+	}
+}
+
