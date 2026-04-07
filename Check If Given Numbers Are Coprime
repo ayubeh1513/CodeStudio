@@ -1,0 +1,14 @@
+public class Solution {
+    public static boolean checkCoPrime(long a, long b) {
+        return gcd(a, b) == 1;
+    }
+
+    private static long gcd(long a, long b) {
+        while (b != 0) {
+            long temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+}
