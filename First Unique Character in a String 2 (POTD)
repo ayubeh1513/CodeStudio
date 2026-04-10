@@ -1,0 +1,21 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static char firstNonRepeating(String str) {
+		// Write your code here
+		Map<Character, Integer> m = new HashMap<>();
+		for(char i : str.toCharArray()){
+			if(m.containsKey(i)){
+				m.put(i, m.get(i) + 1);
+			} else{
+				m.put(i, 1);
+			}
+		}
+
+		for(char i : str.toCharArray()){
+			if(m.get(i)==1) return i;
+		}
+
+		return '#';
+	}
+}
