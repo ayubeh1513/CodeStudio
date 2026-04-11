@@ -1,0 +1,21 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static int[] leastGreaterElement(int[] arr) {
+        // Write your code here
+        int ni = arr.length;
+        int[] a = new int[arr.length];
+        TreeSet<Integer> t = new TreeSet<>();
+        for(int i=ni-1; i>=0; i--){
+            Integer n = t.higher(arr[i]);
+            if(n==null){
+                a[i]=-1;
+            } else{
+                a[i]=n;
+            }
+
+            t.add(arr[i]);
+        }
+        return a;
+    }
+}
