@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> findMinMax(int a, int b) {
+		// Write your code here
+		ArrayList<Integer> ar = new ArrayList<>();
+		if(a>b){
+			ar.add(b);
+			ar.add(a);
+		} else {
+			ar.add(a);
+			ar.add(b);
+		}
+
+		return ar;
+	}
+}
