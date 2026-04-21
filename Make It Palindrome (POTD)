@@ -1,0 +1,31 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution 
+{
+    public static int palindrome(int[] A)
+	{
+		// Write your code here.
+		int i=0, j=A.length-1, o=0;
+		long l=A[i], r=A[j];
+		while(i<j){
+			if(l==r){
+				i++;
+				j--;
+				if(i<j){
+					l=A[i];
+					r=A[j];	
+				}
+			} else if (l<r){
+				i++;
+				l += A[i];
+				o++;
+			} else {
+				j--;
+				r += A[j];
+				o++;
+			}
+		}
+        return o;
+	}
+
+}
