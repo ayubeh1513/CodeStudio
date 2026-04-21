@@ -1,0 +1,23 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+
+	public static int[] sumOfEvenOdd(long num, long evenSum, long oddSum) {
+		/*
+		 * Write your code here and return array with even Sum at 0th index oddSum at
+		 * 1st index
+		 */
+		 int[] a = new int[2];
+		 while(num>0){
+			 long d = num%10;
+			 if(d%2==0) evenSum += d;
+			 else oddSum += d;
+			 num/=10;
+		 }
+
+		 a[0]=(int) evenSum;
+		 a[1]=(int) oddSum;
+		 return a;
+	}
+}
