@@ -1,0 +1,13 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int middleOfThree(int x, int y, int z) {
+		// Write your code here.
+		int m = Math.max(x, Math.max(y, z));
+		int n = Math.min(x, Math.min(y, z));
+		if(x!=m && x!=n) return x;
+		if(y!=m && y!=n) return y;
+		if(z!=m && z!=n) return z;
+		return -1;
+	}
+}
