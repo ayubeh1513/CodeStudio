@@ -1,0 +1,9 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static void rotate(ArrayList<Integer> arr, int n) {
+		// Write your code here.
+		arr.add(0, arr.get(n-1));
+		arr.remove(n);
+	}
+}
