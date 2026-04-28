@@ -1,0 +1,37 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int binaryGap(int num) {
+		// Write your code here.
+		String as = tB(num);
+		int mx = 0, a = 0, b = 1;
+		while(a<as.length() && b<as.length()){
+			if(as.charAt(a)=='0'){
+				a++;
+				b++;
+				continue;
+			}
+
+			if(b>=as.length()) break;
+			if(as.charAt(b)=='0'){
+				b++;
+			} else{
+				int c = b-a;
+				mx = Math.max(mx, c);
+				a=b;
+				b=b+1;
+			}
+		}
+		return mx;
+	}
+
+	public static String tB(int n){
+		StringBuilder sb = new StringBuilder();
+		while(n>0){
+			int d=n%2;
+			sb.append((char)(d+'0'));
+			n /= 2;
+		}
+		return sb.reverse().toString();
+	}
+}
