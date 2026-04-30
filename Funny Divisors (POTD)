@@ -1,0 +1,16 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+
+	public static int findSum(int n, ArrayList<Integer> arr) {
+
+		// Write your code here
+		int a = 0;
+		for(int i : arr){
+			if(i%2==0 || i%3==0) a+=i;
+		}
+		return a;
+	}
+}
