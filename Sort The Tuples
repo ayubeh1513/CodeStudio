@@ -1,0 +1,8 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static void sortTuples(int[][] arr) {
+		// Write your code here.
+		Arrays.sort(arr, (a,b) -> a[a.length-1] - b[b.length-1]);
+	}
+}
