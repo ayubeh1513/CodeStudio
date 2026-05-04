@@ -1,0 +1,38 @@
+public class solution {
+    
+    public static void replaceSurrounded(int mat[][], int m, int n){
+        
+        for(int i = 0; i < m; i++){
+            if(mat[i][0] == 0) dfs(mat, i, 0, m, n);
+            if(mat[i][n-1] == 0) dfs(mat, i, n-1, m, n);
+        }
+        
+        for(int j = 0; j < n; j++){
+            if(mat[0][j] == 0) dfs(mat, 0, j, m, n);
+            if(mat[m-1][j] == 0) dfs(mat, m-1, j, m, n);
+        }
+        
+       for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(mat[i][j] == 0){
+                    mat[i][j] = 1;     
+                } else if(mat[i][j] == -1){
+                    mat[i][j] = 0;     
+                }
+            }
+        }
+    }
+    
+    static void dfs(int[][] mat, int i, int j, int m, int n){
+        if(i < 0 || j < 0 || i >= m || j >= n || mat[i][j] != 0){
+            return;
+        }
+        
+        mat[i][j] = -1; 
+        
+        dfs(mat, i+1, j, m, n);
+        dfs(mat, i-1, j, m, n);
+        dfs(mat, i, j+1, m, n);
+        dfs(mat, i, j-1, m, n);
+    }
+}
