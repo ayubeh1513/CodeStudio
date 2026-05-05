@@ -1,0 +1,11 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static boolean isPeriodic(String s) {
+        // Write your code here.
+        if(s.length()==1) return false;
+        String t = s + s;
+        String m = t.substring(1, t.length()-1);
+        return m.contains(s);
+    }
+}
