@@ -1,0 +1,24 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static boolean checkBits(int n) {
+        // Write your code here.
+        String ns = bin(n);
+        for(int i=1; i<ns.length(); i++){
+            if(ns.charAt(i)==ns.charAt(i-1)) return false;
+        }
+
+        return true;
+    }
+
+    public static String bin(int n){
+        StringBuilder sb =  new StringBuilder();
+        while(n>0){
+            int d = n%2;
+            if(d==1) sb.append('1');
+            else sb.append('0');
+            n/=2;
+        }
+        return sb.reverse().toString();
+    }
+}
