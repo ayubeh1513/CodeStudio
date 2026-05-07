@@ -1,0 +1,85 @@
+/*
+
+    Following is the Node class already written for the Linked List
+
+    class Node<T> {
+        T data;
+        Node<T> next;
+    
+        public Node(T data) {
+            this.data = data;
+        }
+    }
+
+*/
+
+public class Solution {
+
+    // Function to find middle of linked list
+    public static Node<Integer> getMid(Node<Integer> head) {
+        
+        Node<Integer> slow = head;
+        Node<Integer> fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+
+    // Function to merge two sorted linked lists
+    public static Node<Integer> merge(Node<Integer> head1, Node<Integer> head2) {
+
+        Node<Integer> dummy = new Node<>(0);
+        Node<Integer> tail = dummy;
+
+        while (head1 != null && head2 != null) {
+
+            if (head1.data <= head2.data) {
+                tail.next = head1;
+                head1 = head1.next;
+            } else {
+                tail.next = head2;
+                head2 = head2.next;
+            }
+
+            tail = tail.next;
+        }
+
+        // Remaining nodes
+        if (head1 != null) {
+            tail.next = head1;
+        }
+
+        if (head2 != null) {
+            tail.next = head2;
+        }
+
+        return dummy.next;
+    }
+
+	public static Node<Integer> mergeSort(Node<Integer> head) {
+		
+        // Base case
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // Find middle
+        Node<Integer> mid = getMid(head);
+
+        // Split list into two halves
+        Node<Integer> half2 = mid.next;
+        mid.next = null;
+
+        // Recursive sorting
+        Node<Integer> left = mergeSort(head);
+        Node<Integer> right = mergeSort(half2);
+
+        // Merge sorted halves
+        return merge(left, right);
+	}
+
+}
