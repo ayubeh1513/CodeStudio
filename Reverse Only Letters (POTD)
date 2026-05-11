@@ -1,0 +1,25 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+    public static String reverseOnlyLetters(String s) {
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        for(char i : s.toCharArray()){
+            if((i>='a')&&(i<='z')||(i>='A'&&i<='Z')){
+                sb1.append(i);
+            }
+        }
+        
+        int a = sb1.length()-1;
+        for(char i : s.toCharArray()){
+            if(!((i>='a')&&(i<='z')||(i>='A'&&i<='Z'))){
+                sb2.append(i);
+            } else{
+                sb2.append(sb1.charAt(a));
+                a--;
+            }
+        }
+
+        return sb2.toString();
+    }
+}
