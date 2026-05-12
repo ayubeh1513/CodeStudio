@@ -1,0 +1,10 @@
+public class Solution {
+    public static String extractDigits(String s) {
+        // Write your code here
+        StringBuilder sb = new StringBuilder();
+        for(char i : s.toCharArray()){
+            if(i>='0' && i<='9') sb.append(i);
+        }
+        return sb.toString();
+    }
+}
