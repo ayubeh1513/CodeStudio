@@ -1,0 +1,66 @@
+public class Solution {
+
+    static String[] ones = {
+        "", "one", "two", "three", "four", "five",
+        "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen",
+        "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+    };
+
+    static String[] tens = {
+        "", "", "twenty", "thirty", "forty",
+        "fifty", "sixty", "seventy", "eighty", "ninety"
+    };
+
+    public static String getWords(int num) {
+
+        if (num == 0) {
+            return "Zero";
+        }
+
+        String result = convert(num).trim();
+
+        return Character.toUpperCase(result.charAt(0)) + result.substring(1);
+    }
+
+    private static String convert(int num) {
+
+        StringBuilder sb = new StringBuilder();
+
+        if (num >= 10000000) {
+            sb.append(convert(num / 10000000)).append(" crore ");
+            num %= 10000000;
+        }
+
+        if (num >= 100000) {
+            sb.append(convert(num / 100000)).append(" lakh ");
+            num %= 100000;
+        }
+
+        if (num >= 1000) {
+            sb.append(convert(num / 1000)).append(" thousand ");
+            num %= 1000;
+        }
+
+        if (num >= 100) {
+            sb.append(convert(num / 100)).append(" hundred ");
+            num %= 100;
+        }
+
+        if (num >= 20) {
+            sb.append(tens[num / 10]);
+
+            if (num % 10 != 0) {
+                sb.append(" ");
+            }
+
+            num %= 10;
+        }
+
+        if (num > 0 && num < 20) {
+            sb.append(ones[num]);
+        }
+
+        return sb.toString().trim();
+    }
+}
