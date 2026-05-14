@@ -1,0 +1,16 @@
+public class Solution {
+    
+    public static boolean checkOverflowOfMultiplication(int a, int b) {
+        if (a == 0 || b == 0) {
+            return false;
+        }
+
+        int result = a * b;
+
+        if (result / b != a) {
+            return true;
+        }
+
+        return false;
+    }
+}
