@@ -1,0 +1,44 @@
+/***********
+ 
+Following is the Linked list node structure already written 
+ 
+class ListNode<t> {
+	public t data;
+	 public ListNode<t> next;
+	 public ListNode(t data)
+	 {
+		 this.data=data;
+	 }
+}
+
+************/
+
+
+public class solution {
+
+	
+	public static ListNode<Integer> changelist(ListNode<Integer> head) {
+		// Write your code here
+		if(head == null || head.next == null) {
+			return head;
+		}
+
+		ListNode<Integer> odd = head;
+		ListNode<Integer> even = head.next;
+		ListNode<Integer> evenHead = even;
+
+		while(even != null && even.next != null) {
+			
+			odd.next = even.next;
+			odd = odd.next;
+
+			even.next = odd.next;
+			even = even.next;
+		}
+
+		odd.next = evenHead;
+
+		return head;
+	}
+}
+
