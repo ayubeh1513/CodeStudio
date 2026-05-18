@@ -1,0 +1,79 @@
+import java.util.*;
+
+/*
+	- You are given a (9X9) square integer matrix, that contains values between 0-9.
+	- This matrix represents a sudoku.
+	- The sudoku can be completely filled or partially filled.
+	- An entry 0 indicates that the corresponding cell is empty.
+	- Your task is to find out whether this sudoku is valid or not.
+	
+	- Standard sudoku rules are to be enforced to check whether a sudoku is valid/invalid.
+		1. No value should be repeating in a given row.
+		2. No value should be repeating in a given column.
+		3. No value should be repeating in each of the 9 (3X3) square grids.
+
+	- Return a boolean response.
+
+*/
+
+public class solution 
+{
+	public static boolean isSudokuValid(int arr[][])
+	{
+		//	write your code here.
+		for(int i = 0; i < 9; i++) {
+			boolean[] seen = new boolean[10];
+
+			for(int j = 0; j < 9; j++) {
+				int num = arr[i][j];
+
+				if(num != 0) {
+					if(seen[num]) {
+						return false;
+					}
+					seen[num] = true;
+				}
+			}
+		}
+
+		// Check columns
+		for(int j = 0; j < 9; j++) {
+			boolean[] seen = new boolean[10];
+
+			for(int i = 0; i < 9; i++) {
+				int num = arr[i][j];
+
+				if(num != 0) {
+					if(seen[num]) {
+						return false;
+					}
+					seen[num] = true;
+				}
+			}
+		}
+
+		// Check 3x3 subgrids
+		for(int row = 0; row < 9; row += 3) {
+			for(int col = 0; col < 9; col += 3) {
+
+				boolean[] seen = new boolean[10];
+
+				for(int i = row; i < row + 3; i++) {
+					for(int j = col; j < col + 3; j++) {
+
+						int num = arr[i][j];
+
+						if(num != 0) {
+							if(seen[num]) {
+								return false;
+							}
+							seen[num] = true;
+						}
+					}
+				}
+			}
+		}
+
+		return true;
+	}
+}
