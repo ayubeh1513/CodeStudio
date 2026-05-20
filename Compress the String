@@ -1,0 +1,23 @@
+public class Solution {
+	public static String getCompressedString(String str) {
+		// Write your code here.
+		if(str.length() == 0) return "";
+		StringBuilder sb = new StringBuilder();
+		char t = ' ';
+		int a = 0;
+		for(char i : str.toCharArray()){
+			if(i!=t){
+				sb.append(t);
+				if(a>1) sb.append(a);
+				t=i;
+				a=1;
+			} else{
+				a++;
+			}
+		}
+
+		sb.append(t);
+		if(a > 1) sb.append(a);
+		return sb.toString().trim();
+	}
+}
