@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class Solution {
+
+    private static void convert(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+
+        int leftOriginal = 0;
+        int rightOriginal = 0;
+
+        if (root.left != null) {
+            leftOriginal = root.left.data;
+        }
+
+        if (root.right != null) {
+            rightOriginal = root.right.data;
+        }
+
+        convert(root.left);
+        convert(root.right);
+
+        if (root.left == null && root.right == null) {
+            root.data = 0;
+        } else {
+            root.data = leftOriginal + rightOriginal;
+        }
+    }
+
+    private static void preorder(BinaryTreeNode<Integer> root,
+                                 ArrayList<Integer> ans) {
+        if (root == null) {
+            return;
+        }
+
+        ans.add(root.data);
+        preorder(root.left, ans);
+        preorder(root.right, ans);
+    }
+
+    public static ArrayList<Integer> sumTree(BinaryTreeNode<Integer> root) {
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        if (root == null) {
+            return ans;
+        }
+
+        convert(root);
+        preorder(root, ans);
+
+        return ans;
+    }
+}
