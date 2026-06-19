@@ -1,0 +1,20 @@
+public class Solution {
+
+    public static void printLeftView(TreeNode<Integer> root) {
+        helper(root, 0, new int[]{-1});
+    }
+
+    private static void helper(TreeNode<Integer> node, int level, int[] maxLevel) {
+        if (node == null) {
+            return;
+        }
+
+        if (level > maxLevel[0]) {
+            System.out.print(node.data + " ");
+            maxLevel[0] = level;
+        }
+
+        helper(node.left, level + 1, maxLevel);
+        helper(node.right, level + 1, maxLevel);
+    }
+}
