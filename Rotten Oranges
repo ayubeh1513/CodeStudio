@@ -1,0 +1,82 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+    
+    static class Pair {
+        int row;
+        int col;
+
+        Pair(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        
+        if (!sc.hasNextInt()) return;
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[][] grid = new int[n][m];
+        Queue<Pair> queue = new LinkedList<>();
+        int freshOrangesCount = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                grid[i][j] = sc.nextInt();
+                if (grid[i][j] == 2) {
+                    queue.add(new Pair(i, j));
+                } else if (grid[i][j] == 1) {
+                    freshOrangesCount++;
+                }
+            }
+        }
+
+        if (freshOrangesCount == 0) {
+            System.out.println(0);
+            return;
+        }
+
+        int minutesElapsed = 0;
+        int[] dRow = {-1, 0, 1, 0};
+        int[] dCol = {0, 1, 0, -1};
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            boolean rottedAnyInThisRound = false;
+
+            for (int i = 0; i < size; i++) {
+                Pair current = queue.poll();
+
+                for (int d = 0; d < 4; d++) {
+                    int neighborRow = current.row + dRow[d];
+                    int neighborCol = current.col + dCol[d];
+
+                    if (neighborRow >= 0 && neighborRow < n && neighborCol >= 0 && neighborCol < m
+                            && grid[neighborRow][neighborCol] == 1) {
+                        
+                        grid[neighborRow][neighborCol] = 2;
+                        freshOrangesCount--;
+                        queue.add(new Pair(neighborRow, neighborCol));
+                        rottedAnyInThisRound = true;
+                    }
+                }
+            }
+
+            if (rottedAnyInThisRound) {
+                minutesElapsed++;
+            }
+        }
+
+        if (freshOrangesCount > 0) {
+            System.out.println(-1);
+        } else {
+            System.out.println(minutesElapsed);
+        }
+    }
+}
