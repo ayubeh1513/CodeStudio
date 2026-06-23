@@ -1,0 +1,27 @@
+
+public class solution {
+	
+	public static boolean CheckIdempotent(int mat[][], int size){ 
+		/*Your class should be named solution. 
+		*Don't write main().
+		*Don't take input, it is passed as function argument.
+		*Don't print output.
+		*Taking input and printing output is handled automatically.
+		*/ 
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                int sum = 0;
+                
+                for (int k = 0; k < size; k++) {
+                    sum += mat[i][k] * mat[k][j];
+                }
+                
+                if (sum != mat[i][j]) {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
+}
