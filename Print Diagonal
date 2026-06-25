@@ -1,0 +1,33 @@
+
+public class solution {
+	
+	public static void PrintDiagonals(int[][] mat, int row, int col) {
+		/*Your class should be named solution. 
+		*Don't write main(). 
+		*Don't take input, it is passed as function argument.
+		*Print output as specified in question.
+		*/ 
+
+		for (int r = 0; r < row; r++) {
+            int i = r;
+            int j = 0;
+            while (i >= 0 && j < col) {
+                System.out.print(mat[i][j] + " ");
+                i--;
+                j++;
+            }
+            System.out.println();
+        }
+
+        for (int c = 1; c < col; c++) {
+            int i = row - 1;
+            int j = c;
+            while (i >= 0 && j < col) {
+                System.out.print(mat[i][j] + " ");
+                i--;
+                j++;
+            }
+            System.out.println();
+        }
+	}
+}
